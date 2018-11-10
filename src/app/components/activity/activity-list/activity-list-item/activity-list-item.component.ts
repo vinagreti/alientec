@@ -1,7 +1,8 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Activity } from '@app/models/activity';
+import { ActivityActions, DropActivity } from '@app/redux/activity/activity.actions';
 import { Store } from '@ngrx/store';
-import { Activity } from '../../../../models/activity';
-import { DropActivity, ActivityActions } from '@app/redux/activity/activity.actions';
+import * as fromActivity from '@app/redux/activity/activity.reducer';
 
 @Component({
   selector: 'app-activity-list-item',
@@ -12,18 +13,15 @@ export class ActivityListItemComponent implements OnInit {
 
   @Input() activity: Activity;
 
-  @Output() delete = new EventEmitter();
-
   constructor(
-    private store: Store<Activity>,
+    private store: Store<fromActivity.State>,
   ) { }
 
   ngOnInit() {
   }
 
-  drop() {
+  remove() {
     const action: ActivityActions = new DropActivity(this.activity);
     this.store.dispatch(action);
   }
-
 }

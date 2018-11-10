@@ -8,6 +8,8 @@ import * as fromProgram from '@app/redux/program/program.reducer';
 
 import { ProgramListItemComponent } from './program-list-item/program-list-item.component';
 import { ProgramListComponent } from './program-list.component';
+import { MatExpansionModule } from '@angular/material';
+import { ActivityListModule } from '@app/components/activity/activity-list/activity-list.module';
 
 describe('ProgramListComponent', () => {
   let component: ProgramListComponent;
@@ -22,6 +24,8 @@ describe('ProgramListComponent', () => {
         EffectsModule.forRoot([]),
         EffectsModule.forFeature([ProgramEffects]),
         ProgramServiceModule,
+        MatExpansionModule,
+        ActivityListModule,
       ]
     }).compileComponents();
   }));

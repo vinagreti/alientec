@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivityService } from './activity.service';
-import { HttpClientModule } from '@angular/common/http';
+import { ToladataApiModule } from '@app/services/toladata-api/toladata-api.module';
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    HttpClientModule
+    ToladataApiModule,
   ],
   providers: [
     ActivityService,

@@ -14,7 +14,7 @@ export class ProgramEffects {
     switchMap((data: LoadPrograms) => this.programService
       .list()
       .pipe(
-        map((res: any) => new LoadProgramsSuccess(res.data)),
+        map((res: any) => new LoadProgramsSuccess(res)),
         catchError(() => of(new LoadProgramsError()))
       ))
   );

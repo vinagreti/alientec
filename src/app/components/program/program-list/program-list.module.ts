@@ -8,6 +8,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { ProgramEffects } from './../../../redux/program/program.effects';
 import { ActivityListModule } from './../../activity/activity-list/activity-list.module';
 import { ProgramServiceModule } from '@app/services/program/program-service.module';
+import { MatExpansionModule } from '@angular/material';
+import { CdkAccordionModule } from '@angular/cdk/accordion';
 
 @NgModule({
   declarations: [ProgramListComponent, ProgramListItemComponent],
@@ -17,6 +19,7 @@ import { ProgramServiceModule } from '@app/services/program/program-service.modu
     EffectsModule.forFeature([ProgramEffects]),
     ActivityListModule,
     ProgramServiceModule,
+    MatExpansionModule
   ],
   exports: [ProgramListComponent, ProgramListItemComponent]
 })

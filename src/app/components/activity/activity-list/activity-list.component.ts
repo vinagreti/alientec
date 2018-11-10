@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import * as fromActivity from '@app/redux/activity/activity.reducer';
 import { Store } from '@ngrx/store';
 import { Activity } from '@app/models/activity';
-import { LoadActivities } from '@app/redux/activity/activity.actions';
 import { map } from 'rxjs/operators';
 
 @Component({
@@ -15,6 +14,8 @@ import { map } from 'rxjs/operators';
 export class ActivityListComponent implements OnInit {
 
   activities$: Observable<Activity[]>;
+
+  displayedColumns: string[] = ['name', 'startdate', 'enddate', 'action'];
 
   @Input() program: Program;
 
@@ -27,7 +28,7 @@ export class ActivityListComponent implements OnInit {
       .pipe(
         map((res: fromActivity.State) => {
           return res.collection.filter(activity => {
-            return activity.id === this.program.id;
+            return activity.workflowlevel1 === this.program.url;
           });
         })
       );

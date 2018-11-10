@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { MatToolbarModule } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,7 +22,8 @@ import { EffectsModule } from '@ngrx/effects';
     BrowserAnimationsModule,
     EffectsModule.forRoot([]),
     StoreModule.forRoot({}),
-    !environment.production ? StoreDevtoolsModule.instrument() : []
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

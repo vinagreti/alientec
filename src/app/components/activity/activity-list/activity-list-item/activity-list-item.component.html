@@ -1,9 +1,16 @@
-<ng-container *ngIf="activity else loadingTemplate">
-  <h4>{{ activity.id }} - {{ activity.name }}
-    <button type="button" (click)="drop()">X</button>
-  </h4>
-</ng-container>
+<div class="activity-list-item-wrapper">
+  <div fxLayout="row" fxLayoutGap="4px" fxLayoutAlign="start center" *ngIf="activity else loadingTemplate">
+    <div fxFlex>{{activity.name}}</div>
+    <div fxFlex="112px">
+      <div *ngIf="activity.expected_start_date">Start: {{activity.expected_start_date | date: 'dd.MM.yyyy'}}</div>
+      <div *ngIf="activity.expected_end_date">End: {{activity.expected_end_date | date: 'dd.MM.yyyy'}}</div>
+    </div>
+    <div fxFlex="32px">
+      <button mat-icon-button color="" (click)="remove()" title="Remove activity">❌</button>
+    </div>
+  </div>
+</div>
 
 <ng-template #loadingTemplate>
-  Loading activity data...
+  Loading activity...
 </ng-template>

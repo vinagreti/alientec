@@ -1,7 +1,8 @@
 import { TestBed, getTestBed } from '@angular/core/testing';
 
 import { ProgramService } from './program.service';
-import { HttpTestingController, HttpClientTestingModule } from '@angular/common/http/testing';
+import { HttpTestingController } from '@angular/common/http/testing';
+import { ToladataApiServiceTestingModule } from '@app/services/toladata-api/toladata-api-service-testing.module';
 
 describe('ProgramService', () => {
   let injector: TestBed;
@@ -10,7 +11,7 @@ describe('ProgramService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
+      imports: [ToladataApiServiceTestingModule],
       providers: [ProgramService]
     });
     injector = getTestBed();

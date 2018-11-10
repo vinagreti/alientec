@@ -1,21 +1,22 @@
 import { TestBed, getTestBed } from '@angular/core/testing';
 
-import { ActivityService } from './activity.service';
-import { ToladataApiServiceTestingModule } from '@app/services/toladata-api/toladata-api-service-testing.module';
+import { ToladataApiService } from './toladata-api.service';
 import { HttpTestingController } from '@angular/common/http/testing';
+import { ToladataApiServiceTestingModule } from '@app/services/toladata-api/toladata-api-service-testing.module';
 
-describe('ActivityService', () => {
+describe('ToladataApiService', () => {
+
   let injector: TestBed;
-  let service: ActivityService;
+  let service: ToladataApiService;
   let httpMock: HttpTestingController;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [ToladataApiServiceTestingModule],
-      providers: [ActivityService]
+      providers: [ToladataApiService]
     });
     injector = getTestBed();
-    service = injector.get(ActivityService);
+    service = injector.get(ToladataApiService);
     httpMock = injector.get(HttpTestingController);
   });
 

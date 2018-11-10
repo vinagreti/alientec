@@ -1,2 +1,13 @@
-<h1>Alientec</h1>
-<router-outlet></router-outlet>
+<mat-toolbar class="app-main-toolbar">
+  <div style="display: block; width: 100%;">
+    <div class="app-centered-content-wrapper">
+      <h1>{{title}}</h1>
+    </div>
+  </div>
+</mat-toolbar>
+
+<div class="app-main-container">
+  <div class="app-centered-content-wrapper">
+    <router-outlet></router-outlet>
+  </div>
+</div>

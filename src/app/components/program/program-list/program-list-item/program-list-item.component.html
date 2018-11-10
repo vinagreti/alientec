@@ -1,7 +1,5 @@
 <ng-container *ngIf="program else loadingTemplate">
-  <h4>{{ program.id }} - {{ program.name }}
-    <button type="button" (click)="drop()">X</button>
-  </h4>
+  <app-activity-list [program]="program"></app-activity-list>
 </ng-container>
 
 <ng-template #loadingTemplate>

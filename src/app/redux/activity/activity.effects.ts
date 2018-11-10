@@ -22,7 +22,7 @@ export class ActivityEffects {
     switchMap((data: LoadActivities) => this.activityService
       .list()
       .pipe(
-        map((res: any) => new LoadActivitiesSuccess(res.data)),
+        map((res: any) => new LoadActivitiesSuccess(res)),
         catchError(() => of(new LoadActivitiesError()))
       ))
   );

@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProgramService } from './program.service';
-import { HttpClientModule } from '@angular/common/http';
+import { ToladataApiModule } from '@app/services/toladata-api/toladata-api.module';
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    HttpClientModule,
+    ToladataApiModule,
   ],
   providers: [
-    ProgramService,
+    ProgramService
   ]
 })
 export class ProgramServiceModule { }

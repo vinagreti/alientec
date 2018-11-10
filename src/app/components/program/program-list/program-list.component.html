@@ -1,11 +1,17 @@
-<h1>Programs</h1>
-
 <ng-container *ngIf="(programs$ | async) as programs">
 
-  <ng-container *ngFor="let program of programs">
+  <mat-accordion class="example-headers-align">
 
-    <app-program-list-item [program]="program"></app-program-list-item>
+    <mat-expansion-panel *ngFor="let program of programs">
 
-  </ng-container>
+      <mat-expansion-panel-header>
+        <mat-panel-title>{{ program.name }}</mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <app-program-list-item [program]="program"></app-program-list-item>
+
+    </mat-expansion-panel>
+
+  </mat-accordion>
 
 </ng-container>

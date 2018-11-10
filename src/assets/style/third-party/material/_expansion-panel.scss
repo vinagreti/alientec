@@ -1,0 +1,9 @@
+$padding: 12px;
+
+.mat-expansion-panel-body {
+  padding: $padding !important;
+}
+
+.mat-expansion-panel-header {
+  padding: 0 $padding !important;
+}

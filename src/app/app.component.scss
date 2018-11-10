@@ -1,0 +1,22 @@
+$padding: 16px;
+
+.app-main-toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.app-main-container {
+  margin-top: 64px;
+  height: calc(100vh - 64px);
+  max-height: calc(100vh - 64px);
+  overflow: auto;
+}
+
+.app-centered-content-wrapper {
+  min-width: calc(320px - $padding);
+  max-width: 600px;
+  margin: auto;
+  padding: $padding;
+}
