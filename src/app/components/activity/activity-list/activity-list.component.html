@@ -1,0 +1,11 @@
+<h3>Activities</h3>
+
+<ng-container *ngIf="(activities$ | async) as activitys">
+
+  <ng-container *ngFor="let activity of activitys">
+
+    <app-activity-list-item [activity]="activity"></app-activity-list-item>
+
+  </ng-container>
+
+</ng-container>

@@ -1,0 +1,11 @@
+<h1>Programs</h1>
+
+<ng-container *ngIf="(programs$ | async) as programs">
+
+  <ng-container *ngFor="let program of programs">
+
+    <app-program-list-item [program]="program"></app-program-list-item>
+
+  </ng-container>
+
+</ng-container>

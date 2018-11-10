@@ -1,0 +1,9 @@
+<ng-container *ngIf="program else loadingTemplate">
+  <h4>{{ program.id }} - {{ program.name }}
+    <button type="button" (click)="drop()">X</button>
+  </h4>
+</ng-container>
+
+<ng-template #loadingTemplate>
+  Loading program data...
+</ng-template>
