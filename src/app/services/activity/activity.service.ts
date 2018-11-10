@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { DropActivity } from '../../redux/activity/activity.actions';
 import { ToladataApiService } from '@app/services/toladata-api/toladata-api.service';
+import { Activity } from '@app/models/activity';
 
 @Injectable({
   providedIn: 'root'
@@ -11,12 +11,12 @@ export class ActivityService {
     private toladataApi: ToladataApiService,
   ) { }
 
-  list() {
-    return this.toladataApi.list('workflowlevel2');
+  list(filter?: any) {
+    return this.toladataApi.list<Activity[]>('workflowlevel2');
   }
 
-  drop(data: DropActivity) {
-    const endpoint = `workflowlevel2/${data.activity.id}`;
-    return this.toladataApi.drop(endpoint);
+  delete(activity: Activity) {
+    const endpoint = `workflowlevel2/${activity.id}`;
+    return this.toladataApi.delete(endpoint);
   }
 }

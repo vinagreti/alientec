@@ -1,15 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { StoreModule } from '@ngrx/store';
-import { ProgramEffects } from '@app/redux/program/program.effects';
-import { EffectsModule } from '@ngrx/effects';
-import { ProgramServiceModule } from '@app/services/program/program-service.module';
-import * as fromProgram from '@app/redux/program/program.reducer';
-
 import { ProgramListItemComponent } from './program-list-item/program-list-item.component';
 import { ProgramListComponent } from './program-list.component';
 import { MatExpansionModule } from '@angular/material';
 import { ActivityListModule } from '@app/components/activity/activity-list/activity-list.module';
+import { ProgramReduxTestingModule } from '@app/redux/program/program-redux-testing.module';
 
 describe('ProgramListComponent', () => {
   let component: ProgramListComponent;
@@ -19,11 +13,7 @@ describe('ProgramListComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ProgramListComponent, ProgramListItemComponent],
       imports: [
-        StoreModule.forRoot({}),
-        StoreModule.forFeature('programs', fromProgram.reducer),
-        EffectsModule.forRoot([]),
-        EffectsModule.forFeature([ProgramEffects]),
-        ProgramServiceModule,
+        ProgramReduxTestingModule,
         MatExpansionModule,
         ActivityListModule,
       ]

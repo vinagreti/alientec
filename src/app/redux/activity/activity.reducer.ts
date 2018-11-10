@@ -12,8 +12,9 @@ export const initialState: State = {
 export function reducer(state = initialState, action: ActivityActions): State {
   switch (action.type) {
 
+    // LIST
     case ActivityActionTypes.LoadActivities:
-      return { ...state };
+      return state;
 
     case ActivityActionTypes.LoadActivitiesSuccess:
       return {
@@ -22,8 +23,19 @@ export function reducer(state = initialState, action: ActivityActions): State {
       };
 
     case ActivityActionTypes.DropActivity:
-      return { ...state };
+      return state;
 
+    // DELETE
+    case ActivityActionTypes.DropActivitySuccess:
+      return {
+        ...state,
+        collection: state.collection.filter(activity => activity.id !== action.data.activity.id)
+      };
+
+    case ActivityActionTypes.DropActivityError:
+      return state;
+
+    // DEFAULT
     default:
       return state;
   }

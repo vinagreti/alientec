@@ -6,6 +6,9 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { ActivityEffects } from '@app/redux/activity/activity.effects';
 import { ActivityServiceModule } from '@app/services/activity/activity-service.module';
+import { ActivityReduxTestingModule } from '@app/redux/activity/activity-redux-testing.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatButtonModule } from '@angular/material';
 
 describe('ActivityListItemComponent', () => {
   let component: ActivityListItemComponent;
@@ -15,11 +18,9 @@ describe('ActivityListItemComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ActivityListItemComponent],
       imports: [
-        StoreModule.forRoot({}),
-        StoreModule.forFeature('activities', fromActivity.reducer),
-        EffectsModule.forRoot([]),
-        EffectsModule.forFeature([ActivityEffects]),
-        ActivityServiceModule,
+        ActivityReduxTestingModule,
+        FlexLayoutModule,
+        MatButtonModule,
       ]
     })
       .compileComponents();
