@@ -1,9 +1,10 @@
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.4.1-jessie
+      - image: circleci/node:10-browsers
     steps:
-      - run: |
-          npm run test
-          npm run e2e
-          npm run build.prod
+      - run: git clone https://github.com/vinagreti/alientec ./
+      - run: npm i
+      - run: npm run test
+      - run: npm run e2e
+      - run: npm run build.prod
