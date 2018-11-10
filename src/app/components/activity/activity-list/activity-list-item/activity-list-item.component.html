@@ -6,7 +6,7 @@
       <div *ngIf="activity.expected_end_date">End: {{activity.expected_end_date | date: 'dd.MM.yyyy'}}</div>
     </div>
     <div fxFlex="32px">
-      <button mat-icon-button color="" (click)="remove()" title="Remove activity">❌</button>
+      <button mat-icon-button color="" (click)="delete()" title="Delete activity">❌</button>
     </div>
   </div>
 </div>

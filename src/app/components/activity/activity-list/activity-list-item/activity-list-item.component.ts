@@ -20,7 +20,7 @@ export class ActivityListItemComponent implements OnInit {
   ngOnInit() {
   }
 
-  remove() {
+  delete() {
     const action: ActivityActions = new DropActivity(this.activity);
     this.store.dispatch(action);
   }

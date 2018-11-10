@@ -12,13 +12,13 @@ export class ToladataApiService {
     private http: HttpClient,
   ) { }
 
-  list(path) {
+  list<T>(path) {
     const endpoint = `${API}/${path}/`;
-    return this.http.get(endpoint);
+    return this.http.get<T>(endpoint);
   }
 
-  drop(path: string) {
+  delete<T>(path: string) {
     const endpoint = `${API}/${path}/`;
-    return this.http.delete(endpoint);
+    return this.http.delete<T>(endpoint);
   }
 }

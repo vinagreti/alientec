@@ -1,12 +1,12 @@
 import { TestBed, inject } from '@angular/core/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 import { ProgramEffects } from './program.effects';
 import { ProgramServiceTestingModule } from '@app/services/program/program-service-testing.module';
 
 describe('ProgramEffects', () => {
-  let actions$: Observable<any>;
+  const actions$: Observable<any> = of();
   let effects: ProgramEffects;
 
   beforeEach(() => {

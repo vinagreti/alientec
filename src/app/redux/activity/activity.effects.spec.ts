@@ -1,12 +1,13 @@
 import { TestBed, inject } from '@angular/core/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
-import { Observable } from 'rxjs';
-
-import { ActivityEffects } from './activity.effects';
+import { MatSnackBarModule } from '@angular/material';
+import { Observable, of } from 'rxjs';
+import { ConfirmServiceModule } from '@app/services/confirm/confirm-service.module';
 import { ActivityServiceTestingModule } from '@app/services/activity/activity-service-testing.module';
+import { ActivityEffects } from './activity.effects';
 
 describe('ActivityEffects', () => {
-  let actions$: Observable<any>;
+  const actions$: Observable<any> = of();
   let effects: ActivityEffects;
 
   beforeEach(() => {
@@ -16,7 +17,9 @@ describe('ActivityEffects', () => {
         provideMockActions(() => actions$),
       ],
       imports: [
-        ActivityServiceTestingModule
+        ActivityServiceTestingModule,
+        ConfirmServiceModule,
+        MatSnackBarModule,
       ]
     });
 
