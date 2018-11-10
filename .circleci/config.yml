@@ -1,0 +1,9 @@
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:2.4.1-jessie
+    steps:
+      - run: |
+          npm run test
+          npm run e2e
+          npm run build.prod
