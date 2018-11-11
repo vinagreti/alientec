@@ -8,7 +8,7 @@
 
 <div class="app-main-container">
   <div class="app-centered-content-wrapper">
-    <router-outlet (activate)='loading = fals'>
+    <router-outlet (activate)='loading = false'>
       <app-loading-indicator *ngIf="loading" [centerScreen]="true" msg="Loading content"></app-loading-indicator>
     </router-outlet>
   </div>
