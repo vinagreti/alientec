@@ -4,6 +4,7 @@ import { ProgramListComponent } from './program-list.component';
 import { MatExpansionModule } from '@angular/material';
 import { ActivityListModule } from '@app/components/activity/activity-list/activity-list.module';
 import { ProgramReduxTestingModule } from '@app/redux/program/program-redux-testing.module';
+import { LoadingIndicatorModule } from '@app/components/loading-indicator/loading-indicator.module';
 
 describe('ProgramListComponent', () => {
   let component: ProgramListComponent;
@@ -16,6 +17,7 @@ describe('ProgramListComponent', () => {
         ProgramReduxTestingModule,
         MatExpansionModule,
         ActivityListModule,
+        LoadingIndicatorModule,
       ]
     }).compileComponents();
   }));

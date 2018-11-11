@@ -7,9 +7,8 @@ import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from './../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
+import { AppReduxModule } from '@app/redux/redux.module';
+import { LoadingIndicatorModule } from '@app/components/loading-indicator/loading-indicator.module';
 
 @NgModule({
   declarations: [
@@ -20,10 +19,9 @@ import { EffectsModule } from '@ngrx/effects';
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     BrowserAnimationsModule,
-    EffectsModule.forRoot([]),
-    StoreModule.forRoot({}),
-    !environment.production ? StoreDevtoolsModule.instrument() : [],
-    MatToolbarModule
+    MatToolbarModule,
+    AppReduxModule,
+    LoadingIndicatorModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

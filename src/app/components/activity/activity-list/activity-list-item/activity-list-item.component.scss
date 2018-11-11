@@ -1,7 +1,13 @@
 .activity-list-item-wrapper {
-  background-color: rgba($color: #2ECC71, $alpha: 0.5);
   border-radius: 4px;
   font-size: small;
   margin-top: 4px;
   padding: 0 8px;
+  width: 100%;
+  max-width: 100%;
+
+  .activity-list-item-name {
+    max-width: calc(100% - 160px);
+    flex: 1 0 auto; 
+  }
 }

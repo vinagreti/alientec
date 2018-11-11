@@ -1,0 +1,25 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$alientec-app-primary: mat-palette($mat-blue, 500);
+$alientec-app-accent:  mat-palette($mat-red, A200, A100, A400);
+$alientec-app-warn:    mat-palette($mat-orange);
+
+$alientec-app-theme: mat-light-theme($alientec-app-primary, $alientec-app-accent, $alientec-app-warn);
+
+@include angular-material-theme($alientec-app-theme);
+
+// Theme colors class
+.alientec-app-primary-bg {
+  background-color: mat-color($alientec-app-primary);
+  color: mat-color($alientec-app-primary, default-contrast);
+}
+.alientec-app-accent-bg {
+  background-color: mat-color($alientec-app-accent);
+  color: mat-color($alientec-app-accent, default-contrast);
+}
+.alientec-app-warn-bg {
+  background-color: mat-color($alientec-app-warn);
+  color: mat-color($alientec-app-warn, default-contrast);
+}
