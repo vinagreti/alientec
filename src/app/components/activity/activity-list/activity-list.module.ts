@@ -6,6 +6,7 @@ import { ActivityListComponent } from './activity-list.component';
 import { ActivityListItemComponent } from './activity-list-item/activity-list-item.component';
 import { MatButtonModule } from '@angular/material';
 import { ActivityReduxModule } from '@app/redux/activity/activity-redux.module';
+import { LoadingIndicatorModule } from '@app/components/loading-indicator/loading-indicator.module';
 
 @NgModule({
   declarations: [ActivityListComponent, ActivityListItemComponent],
@@ -14,6 +15,7 @@ import { ActivityReduxModule } from '@app/redux/activity/activity-redux.module';
     ActivityReduxModule,
     FlexLayoutModule,
     MatButtonModule,
+    LoadingIndicatorModule,
   ],
   exports: [ActivityListComponent, ActivityListItemComponent]
 })

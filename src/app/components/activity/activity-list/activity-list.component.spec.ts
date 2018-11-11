@@ -5,6 +5,7 @@ import { ActivityListItemComponent } from '@app/components/activity/activity-lis
 import { ActivityReduxTestingModule } from '@app/redux/activity/activity-redux-testing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatButtonModule } from '@angular/material';
+import { LoadingIndicatorModule } from '@app/components/loading-indicator/loading-indicator.module';
 
 describe('ActivityListComponent', () => {
   let component: ActivityListComponent;
@@ -17,6 +18,7 @@ describe('ActivityListComponent', () => {
         ActivityReduxTestingModule,
         FlexLayoutModule,
         MatButtonModule,
+        LoadingIndicatorModule,
       ]
     }).compileComponents();
   }));

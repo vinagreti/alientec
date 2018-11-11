@@ -1,11 +1,13 @@
-<div class="activity-list-item-wrapper">
-  <div fxLayout="row" fxLayoutGap="4px" fxLayoutAlign="start center" *ngIf="activity else loadingTemplate">
-    <div fxFlex>{{activity.name}}</div>
+<div class="activity-list-item-wrapper alientec-app-primary-bg">
+  <div fxLayout="row wrap" fxLayoutGap="4px" fxLayoutAlign="start center" *ngIf="activity else loadingTemplate">
+    <div class="activity-list-item-name">
+      {{activity.name}}
+    </div>
     <div fxFlex="112px">
       <div *ngIf="activity.expected_start_date">Start: {{activity.expected_start_date | date: 'dd.MM.yyyy'}}</div>
       <div *ngIf="activity.expected_end_date">End: {{activity.expected_end_date | date: 'dd.MM.yyyy'}}</div>
     </div>
-    <div fxFlex="32px">
+    <div fxFlex="32px" fxFlexAlign="end end">
       <button mat-icon-button color="" (click)="delete()" title="Delete activity">❌</button>
     </div>
   </div>

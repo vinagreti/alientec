@@ -1,17 +1,32 @@
-<ng-container *ngIf="(programs$ | async) as programs">
+<ng-container *ngIf="!loading else loadingTemplate">
 
-  <mat-accordion class="example-headers-align">
+  <ng-container *ngIf="(programs$ | async) as programs else loadingTemplate">
 
-    <mat-expansion-panel *ngFor="let program of programs">
+    <mat-accordion class="example-headers-align" *ngIf="programs.length else noPrograms">
 
-      <mat-expansion-panel-header>
-        <mat-panel-title>{{ program.name }}</mat-panel-title>
-      </mat-expansion-panel-header>
+      <mat-expansion-panel *ngFor="let program of programs">
 
-      <app-program-list-item [program]="program"></app-program-list-item>
+        <mat-expansion-panel-header>
 
-    </mat-expansion-panel>
+          <mat-panel-title>{{ program.name }}</mat-panel-title>
 
-  </mat-accordion>
+        </mat-expansion-panel-header>
+
+        <app-program-list-item [program]="program"></app-program-list-item>
+
+      </mat-expansion-panel>
+
+    </mat-accordion>
+
+  </ng-container>
 
 </ng-container>
+
+
+<ng-template #loadingTemplate>
+  <app-loading-indicator [centerScreen]="true" msg="Loading programs"></app-loading-indicator>
+</ng-template>
+
+<ng-template #noPrograms>
+  There is no problem available.
+</ng-template>

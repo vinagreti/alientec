@@ -6,7 +6,7 @@ export interface State {
 }
 
 export const initialState: State = {
-  collection: []
+  collection: undefined
 };
 
 export function reducer(state = initialState, action: ProgramActions): State {

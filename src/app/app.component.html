@@ -1,4 +1,4 @@
-<mat-toolbar class="app-main-toolbar">
+<mat-toolbar class="app-main-toolbar" color="primary">
   <div style="display: block; width: 100%;">
     <div class="app-centered-content-wrapper">
       <h1>{{title}}</h1>
@@ -8,6 +8,8 @@
 
 <div class="app-main-container">
   <div class="app-centered-content-wrapper">
-    <router-outlet></router-outlet>
+    <router-outlet (activate)='loading = fals'>
+      <app-loading-indicator *ngIf="loading" [centerScreen]="true" msg="Loading content"></app-loading-indicator>
+    </router-outlet>
   </div>
 </div>

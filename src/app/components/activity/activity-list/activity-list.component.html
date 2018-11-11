@@ -1,13 +1,26 @@
-<ng-container *ngIf="(activities$ | async) as activitys else loadingTemplate">
+<ng-container *ngIf="!loading else loadingTemplate">
 
-  <ng-container *ngFor="let activity of activitys">
+  <ng-container *ngIf="(activities$ | async) as activities else loadingTemplate">
 
-    <app-activity-list-item [activity]="activity"></app-activity-list-item>
+    <ng-container *ngIf="activities.length else noActivities">
+
+      <ng-container *ngFor="let activity of activities">
+
+        <app-activity-list-item [activity]="activity"></app-activity-list-item>
+
+      </ng-container>
+
+    </ng-container>
 
   </ng-container>
 
 </ng-container>
 
+
 <ng-template #loadingTemplate>
-  Loading activities...
+  <app-loading-indicator msg="Loading activities"></app-loading-indicator>
+</ng-template>
+
+<ng-template #noActivities>
+  This program do not have any activity.
 </ng-template>
