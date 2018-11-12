@@ -62,6 +62,10 @@ export class ActivityFormComponent implements OnDestroy, OnInit {
     this.saving = true;
   }
 
+  shouldDisableSave() {
+    return this.reactiveForm.invalid || this.saving;
+  }
+
   private informInsertion() {
     this.snack.open(`Activity ${this.reactiveForm.value.name} created!`, 'Close');
   }

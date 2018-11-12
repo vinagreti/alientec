@@ -45,4 +45,27 @@ describe('ActivityFormComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render a form', () => {
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    const form = compiled.querySelector('form');
+    expect(form).toBeTruthy();
+  });
+
+  it('should disable button if name is not set', () => {
+    component.reactiveForm.controls.name.setValue(undefined);
+    component.saving = false;
+    fixture.detectChanges();
+    const disabled = component.shouldDisableSave();
+    expect(disabled).toBeTruthy();
+  });
+
+  it('should disable button if saving', () => {
+    component.reactiveForm.controls.name.setValue('test');
+    component.saving = true;
+    fixture.detectChanges();
+    const disabled = component.shouldDisableSave();
+    expect(disabled).toBeTruthy();
+  });
 });

@@ -1,10 +1,14 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { MatToolbarModule } from '@angular/material';
 import { LoadingIndicatorModule } from '@app/components/loading-indicator/loading-indicator.module';
 
 describe('AppComponent', () => {
+
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
@@ -18,22 +22,35 @@ describe('AppComponent', () => {
     }).compileComponents();
   }));
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
   });
 
-  it(`should have as title 'Alientec'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('⊶ Alientec');
+  it('should create the app', () => {
+    expect(component).toBeTruthy();
   });
 
   it('should render title in a h1 tag', () => {
-    const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('h1').textContent).toContain('⊶ Alientec');
   });
+
+  it('should show a loading gif while loading the route', () => {
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    const loadingInidicator = compiled.querySelector('app-loading-indicator');
+    expect(loadingInidicator).toBeTruthy();
+  });
+
+  it('should hide loading gif after route activation', () => {
+    component.loading = false;
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    const loadingInidicator = compiled.querySelector('app-loading-indicator');
+    expect(loadingInidicator).toBeFalsy();
+  });
+
 });
