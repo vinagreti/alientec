@@ -5,6 +5,7 @@ import * as fromActivity from '@app/redux/activity/activity.reducer';
 import { Store } from '@ngrx/store';
 import { Activity } from '@app/models/activity';
 import { map, tap, distinctUntilChanged, debounceTime } from 'rxjs/operators';
+import { ActivityFormService } from '@app/components/activity/activity-form/activity-form.service';
 
 @Component({
   selector: 'app-activity-list',
@@ -23,6 +24,7 @@ export class ActivityListComponent implements AfterViewInit {
 
   constructor(
     private store: Store<fromActivity.State>,
+    private activityFormService: ActivityFormService,
   ) { }
 
   ngAfterViewInit() {
@@ -39,6 +41,10 @@ export class ActivityListComponent implements AfterViewInit {
     );
 
     this.activities$.subscribe(_ => { });
+  }
+
+  addActivity() {
+    this.activityFormService.open(this.program);
   }
 
 }

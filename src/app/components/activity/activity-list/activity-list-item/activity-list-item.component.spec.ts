@@ -1,14 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import * as fromActivity from '@app/redux/activity/activity.reducer';
 import { ActivityListItemComponent } from './activity-list-item.component';
-import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
-import { ActivityEffects } from '@app/redux/activity/activity.effects';
-import { ActivityServiceModule } from '@app/services/activity/activity-service.module';
 import { ActivityReduxTestingModule } from '@app/redux/activity/activity-redux-testing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatButtonModule } from '@angular/material';
+import { MatButtonModule, MatSnackBarModule } from '@angular/material';
+import { ConfirmServiceModule } from '@app/services/confirm/confirm-service.module';
 
 describe('ActivityListItemComponent', () => {
   let component: ActivityListItemComponent;
@@ -21,6 +16,8 @@ describe('ActivityListItemComponent', () => {
         ActivityReduxTestingModule,
         FlexLayoutModule,
         MatButtonModule,
+        ConfirmServiceModule,
+        MatSnackBarModule,
       ]
     })
       .compileComponents();

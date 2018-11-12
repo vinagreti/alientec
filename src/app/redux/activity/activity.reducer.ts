@@ -13,23 +13,30 @@ export function reducer(state = initialState, action: ActivityActions): State {
   switch (action.type) {
 
     // LIST
-    case ActivityActionTypes.LoadActivities:
-      return state;
-
     case ActivityActionTypes.LoadActivitiesSuccess:
       return {
         ...state,
-        collection: [...action.collection]
+        collection: [...action.res]
       };
 
     case ActivityActionTypes.DropActivity:
+      return state;
+
+    // ADD
+    case ActivityActionTypes.AddActivitySuccess:
+      return {
+        ...state,
+        collection: [...state.collection, action.res]
+      };
+
+    case ActivityActionTypes.AddActivityError:
       return state;
 
     // DELETE
     case ActivityActionTypes.DropActivitySuccess:
       return {
         ...state,
-        collection: state.collection.filter(activity => activity.id !== action.data.activity.id)
+        collection: state.collection.filter(activity => activity.id !== action.data.payload.id)
       };
 
     case ActivityActionTypes.DropActivityError:

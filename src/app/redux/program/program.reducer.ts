@@ -20,7 +20,7 @@ export function reducer(state = initialState, action: ProgramActions): State {
     case ProgramActionTypes.LoadProgramsSuccess:
       return {
         ...state,
-        collection: [...action.collection]
+        collection: [...action.res]
       };
 
     default:

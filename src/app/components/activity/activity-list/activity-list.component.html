@@ -14,13 +14,17 @@
 
   </ng-container>
 
+  <p class="text-center">
+    <button mat-raised-button (click)="addActivity()" color="primary">Add activity</button>
+  </p>
+
 </ng-container>
 
 
 <ng-template #loadingTemplate>
-  <app-loading-indicator msg="Loading activities"></app-loading-indicator>
+  <app-loading-indicator msg="Loading activities" [autoHeight]="true"></app-loading-indicator>
 </ng-template>
 
 <ng-template #noActivities>
-  This program do not have any activity.
+  <p class="text-center">This program doesn't have any activity</p>
 </ng-template>

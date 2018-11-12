@@ -1,3 +1,31 @@
-<p>
-  activity-form works!
-</p>
+<h1 mat-dialog-title>Add activity to program {{program?.name}}</h1>
+
+<form role="form" (submit)="submitForm()" [formGroup]="reactiveForm">
+  <mat-dialog-content>
+
+    <mat-form-field>
+      <input matInput placeholder="Name" formControlName="name">
+    </mat-form-field>
+
+    <div fxLayout="row" fxLayoutGap="8px">
+      <mat-form-field fxFlex>
+        <input #startDateInput matInput [matDatepicker]="startDate" placeholder="Start date" formControlName="startDate" (focus)="blurAndPick(startDateInput, startDate)">
+        <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+        <mat-datepicker #startDate></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field fxFlex>
+        <input #endDateInput matInput [matDatepicker]="endDate" placeholder="End
+        date" formControlName="endDate" (focus)="blurAndPick(endDateInput, endDate)">
+        <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+        <mat-datepicker #endDate></mat-datepicker>
+      </mat-form-field>
+    </div>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-flat-button color="primary" type="submit" [disabled]="reactiveForm.invalid || saving">Save</button>
+    &nbsp;
+    <button mat-button [mat-dialog-close]="false" type="button">Cancel</button>
+  </mat-dialog-actions>
+</form>
