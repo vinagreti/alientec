@@ -1,16 +1,16 @@
-[![CircleCI](https://circleci.com/gh/vinagreti/alientec.svg?style=svg)](https://circleci.com/gh/vinagreti/alientec)
+Continuos integration [![CircleCI](https://circleci.com/gh/vinagreti/alientec.svg?style=svg)](https://circleci.com/gh/vinagreti/alientec)
 
 # Alientec
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.4.
 
-## Running command
+## Running commands
 
-All commands described in this doc are supposed to be executed from the root flolder.
+All commands described in this doc are supposed to be executed from the root folder.
 
 ## Preparing the environment
 
-You need to have node 9+ and npm 6+ to run this app.
+You need to have node 8+ and npm 5+ to run this app.
 
 Access the root folder and run `npm i` to install all dependencies.
 
