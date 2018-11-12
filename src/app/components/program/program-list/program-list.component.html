@@ -4,7 +4,7 @@
 
     <mat-accordion class="example-headers-align" *ngIf="programs.length else noPrograms">
 
-      <mat-expansion-panel *ngFor="let program of programs">
+      <mat-expansion-panel *ngFor="let program of programs; let i = index" [expanded]="openProgramIndex === i" (opened)="setStep(i)">
 
         <mat-expansion-panel-header>
 

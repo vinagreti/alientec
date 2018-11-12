@@ -11,6 +11,10 @@ export class ActivityService {
     private toladataApi: ToladataApiService,
   ) { }
 
+  add(activity?: Activity) {
+    return this.toladataApi.post<Activity>('workflowlevel2', activity);
+  }
+
   list(filter?: any) {
     return this.toladataApi.list<Activity[]>('workflowlevel2');
   }

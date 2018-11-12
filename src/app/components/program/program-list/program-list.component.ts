@@ -6,6 +6,7 @@ import { LoadPrograms } from '@app/redux/program/program.actions';
 import * as fromProgram from '@app/redux/program/program.reducer';
 import { map, tap, distinctUntilChanged, debounceTime } from 'rxjs/operators';
 import { LoadActivities } from '@app/redux/activity/activity.actions';
+import { ramdomUid } from '@app/helpers/number-helpers/number-helpers';
 
 @Component({
   selector: 'app-program-list',
@@ -18,6 +19,12 @@ export class ProgramListComponent implements OnInit {
 
   programs$: Observable<Program[]>;
 
+  openProgramIndex: number;
+
+  listActivitiesUid = ramdomUid();
+
+  listProgramsUid = ramdomUid();
+
   constructor(
     private store: Store<fromProgram.State>,
   ) { }
@@ -27,9 +34,16 @@ export class ProgramListComponent implements OnInit {
     this.bindProgramsStreamToLocalObservable();
   }
 
+  setStep(index = 0) {
+    this.openProgramIndex = index;
+  }
+
   private initProgramsStream() {
-    this.store.dispatch(new LoadPrograms());
-    this.store.dispatch(new LoadActivities());
+
+    this.store.dispatch(new LoadPrograms({}, this.listProgramsUid));
+
+    this.store.dispatch(new LoadActivities({}, this.listActivitiesUid));
+
   }
 
   private bindProgramsStreamToLocalObservable() {

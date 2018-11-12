@@ -9,6 +9,8 @@ export class LoadingIndicatorComponent implements OnInit {
 
   @Input() centerScreen: boolean;
 
+  @Input() autoHeight: boolean;
+
   @Input() msg: string;
 
   constructor() { }

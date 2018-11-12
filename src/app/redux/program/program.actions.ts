@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { ListPayload } from '../../models/payload';
+import { HttpReduxRequest, HttpReduxSuccess, HttpReduxError } from '@app/redux/actions..models';
 
 export enum ProgramActionTypes {
   LoadPrograms = '[Program] Load',
@@ -8,19 +8,23 @@ export enum ProgramActionTypes {
 }
 
 // LIST
-export class LoadPrograms implements ListPayload {
+export class LoadPrograms implements HttpReduxRequest<any> {
   readonly type = ProgramActionTypes.LoadPrograms;
+  constructor(readonly payload: any, readonly uid: string) { }
 }
 
-export class LoadProgramsSuccess implements Action {
+export class LoadProgramsSuccess implements HttpReduxSuccess<LoadPrograms> {
   readonly type = ProgramActionTypes.LoadProgramsSuccess;
-  constructor(readonly collection: any) {}
+  constructor(readonly res: any, readonly data: LoadPrograms) { }
 }
 
-export class LoadProgramsError implements Action {
+export class LoadProgramsError implements HttpReduxError<LoadPrograms> {
   readonly type = ProgramActionTypes.LoadProgramsError;
+  constructor(readonly res: any, readonly data: LoadPrograms) { }
 }
 
 
 // PUBLIC
-export type ProgramActions = LoadPrograms | LoadProgramsSuccess | LoadProgramsError;
+export type ProgramActions = LoadPrograms
+  | LoadProgramsSuccess
+  | LoadProgramsError;

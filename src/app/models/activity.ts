@@ -17,7 +17,7 @@ export interface Activity {
   effect_or_impact?: any;
   expected_end_date?: any;
   expected_start_date?: any;
-  id: number;
+  id?: number;
   indicators?: string[];
   issues_and_challenges?: string;
   justification_background?: string;
