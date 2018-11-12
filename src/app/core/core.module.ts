@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
-import { MatNativeDateModule, MAT_SNACK_BAR_DEFAULT_OPTIONS, MAT_DATE_FORMATS, NativeDateAdapter, DateAdapter } from '@angular/material';
+import { MatNativeDateModule, MAT_SNACK_BAR_DEFAULT_OPTIONS, NativeDateAdapter, DateAdapter, MatDatepickerModule } from '@angular/material';
 import { AppReduxModule } from '@app/redux/redux.module';
 import { DatePipe } from '@angular/common';
 
-class PickDateAdapter extends NativeDateAdapter {
-  format(date: Date, displayFormat: Object): string {
+export class CustomMatDatePickerFormat extends NativeDateAdapter {
+  format(date: Date): string {
     return new DatePipe('en-US').transform(date, 'dd.MM.yyyy');
   }
 }
@@ -12,12 +12,13 @@ class PickDateAdapter extends NativeDateAdapter {
 @NgModule({
   declarations: [],
   exports: [
-    MatNativeDateModule,
     AppReduxModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
   ],
   providers: [
     { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 4e3 } },
-    { provide: DateAdapter, useClass: PickDateAdapter },
+    { provide: DateAdapter, useClass: CustomMatDatePickerFormat },
   ]
 })
 export class CoreModule { }
