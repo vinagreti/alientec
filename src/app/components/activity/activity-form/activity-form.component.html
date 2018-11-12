@@ -24,7 +24,7 @@
   </mat-dialog-content>
 
   <mat-dialog-actions align="end">
-    <button mat-flat-button color="primary" type="submit" [disabled]="reactiveForm.invalid || saving">Save</button>
+    <button mat-flat-button color="primary" type="submit" [disabled]="shouldDisableSave()">Save</button>
     &nbsp;
     <button mat-button [mat-dialog-close]="false" type="button">Cancel</button>
   </mat-dialog-actions>

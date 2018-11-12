@@ -33,4 +33,17 @@ describe('ProgramListItemComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render "waiting data" message if none exists', () => {
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('#waiting-data').textContent).toContain('Waiting data.');
+  });
+
+  it('should render program data', () => {
+    component.program = { id: 1, name: 'test', url: 'df' };
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('app-activity-list').textContent).toBeTruthy();
+  });
 });

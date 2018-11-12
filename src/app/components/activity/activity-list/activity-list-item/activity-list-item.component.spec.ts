@@ -32,4 +32,17 @@ describe('ActivityListItemComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render "waiting data" message if none exists', () => {
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('#waiting-data').textContent).toContain('Waiting data.');
+  });
+
+  it('should render activity data', () => {
+    component.activity = { id: 1, name: 'test', url: 'df', workflowlevel1: 'sdf' };
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('.activity-list-item-name').textContent).toBeTruthy();
+  });
 });

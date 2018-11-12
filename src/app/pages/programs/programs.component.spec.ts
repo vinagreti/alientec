@@ -32,4 +32,11 @@ describe('ProgramsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render the app-program-list', () => {
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    const loadingInidicator = compiled.querySelector('app-program-list');
+    expect(loadingInidicator).toBeTruthy();
+  });
 });
